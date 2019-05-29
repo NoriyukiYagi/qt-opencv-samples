@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.14)
+cmake_minimum_required (VERSION 3.5)
 project (qt-opencv-samples)
 include(ExternalProject)
 
@@ -14,11 +14,13 @@ ExternalProject_Add(opencv
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/external/opencv
     SOURCE_DIR ${OPENCV_SOURCE_DIR}
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX:PATH=${OPENCV_INSTALL_DIR})
-include_directories(${OPENCV_INSTALL_DIR}/include)
 if(WIN32)
+    include_directories(${OPENCV_INSTALL_DIR}/include)
     FILE(GLOB_RECURSE opencvLibs "${OPENCV_INSTALL_DIR}/*.lib")
 else()
-    FILE(GLOB_RECURSE opencvLibs "${OPENCV_INSTALL_DIR}/*.a")
+    find_package(OpenCV PATHS ${OPENCV_INSTALL_DIR})
+    include_directories(${OpenCV_INCLUDE_DIRS})
+    set(opencvLibs ${OpenCV_LIBS})
 endif()
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
