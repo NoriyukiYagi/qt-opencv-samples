@@ -6,22 +6,9 @@ namespace qt_opencv_samples {
 namespace flip {
 
 Flip::Flip(QObject* parent)
-    : QObject(parent)
+    : OneInputOneOutput(parent)
     , m_flipCode(0)
 {}
-
-QUrl Flip::inputFileUrl()
-{
-    return m_inputFileUrl;
-}
-
-void Flip::setInputFileUrl(QUrl value)
-{
-    if (value != m_inputFileUrl) {
-        m_inputFileUrl = value;
-        emit inputFileUrlChanged();
-    }
-}
 
 int Flip::flipCode()
 {
@@ -36,34 +23,9 @@ void Flip::setFlipCode(int value)
     }
 }
 
-QUrl Flip::outputFileUrl()
+void Flip::execute(const cv::UMat& source, cv::UMat& dest)
 {
-    return m_outputFileUrl;
-}
-
-void Flip::setOutputFileUrl(QUrl value)
-{
-    if (value != m_outputFileUrl) {
-        m_outputFileUrl = value;
-        emit outputFileUrlChanged();
-    }
-}
-
-void Flip::execute()
-{
-    QUrl inputFile = inputFileUrl();
-    if (inputFile.isEmpty()) {
-        return;
-    }
-
-    cv::Mat source = cv::imread(inputFile.toLocalFile().toStdString());
-    cv::Mat dest;
     cv::flip(source, dest, flipCode());
-
-    std::vector<uchar> buf;
-    cv::imencode(".png", dest, buf);
-    QByteArray byteArray(reinterpret_cast<char*>(buf.data()), static_cast<int>(buf.size()));
-    setOutputFileUrl(QUrl("data:image/png;base64," + byteArray.toBase64()));
 }
 
 } // namespace flip

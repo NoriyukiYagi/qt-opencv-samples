@@ -6,17 +6,17 @@ import QtOpenCVSamples 1.0
 Pane {
     QtObject {
         id: d
-        property Flip flip: Flip {}
+        property Rotation rotation: Rotation {}
 
         property FileDialog fileOpenDialog: FileDialog {
             onAccepted: {
-                d.flip.inputFileUrl = d.fileOpenDialog.fileUrl
+                d.rotation.inputFileUrl = d.fileOpenDialog.fileUrl
             }
         }
     }
 
     Label {
-        text: "FlipView"
+        text: "RotationView"
     }
 
     Column {
@@ -28,32 +28,31 @@ Pane {
             }
         }
         Image {
-            source: d.flip.inputFileUrl
+            source: d.rotation.inputFileUrl
         }
         Row {
             spacing: 8
             Label {
-                id: flipCodeLabel
-                text: "flipCode:"
+                text: "angleInDeg:"
             }
             Label {
-                text: d.flip.flipCode
+                text: d.rotation.angleInDeg
             }
         }
         Slider {
-            from: -1
-            to: 1
+            from: -360
+            to: 360
             stepSize: 1
-            value: d.flip.flipCode
+            value: d.rotation.angleInDeg
             onValueChanged: {
-                if (value !== d.flip.flipCode) {
-                    d.flip.flipCode = value;
-                    d.flip.execute();
+                if (value !== d.rotation.angleInDeg) {
+                    d.rotation.angleInDeg = value;
+                    d.rotation.execute();
                 }
             }
         }
         Image {
-            source: d.flip.outputFileUrl
+            source: d.rotation.outputFileUrl
         }
     }
 }

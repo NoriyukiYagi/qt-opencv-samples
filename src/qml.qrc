@@ -2,5 +2,6 @@
     <qresource prefix="/">
         <file>MainWindow.qml</file>
         <file>qt_opencv_samples/flip/FlipView.qml</file>
+        <file>qt_opencv_samples/rotation/RotationView.qml</file>
     </qresource>
 </RCC>

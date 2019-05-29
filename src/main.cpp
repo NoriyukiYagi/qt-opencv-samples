@@ -1,12 +1,15 @@
 #include "qt_opencv_samples/flip/Flip.h"
+#include "qt_opencv_samples/rotation/Rotation.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
 static void qmlRegistration()
 {
     using qt_opencv_samples::flip::Flip;
+    using qt_opencv_samples::rotation::Rotation;
 
     qmlRegisterType<Flip>("QtOpenCVSamples", 1, 0, "Flip");
+    qmlRegisterType<Rotation>("QtOpenCVSamples", 1, 0, "Rotation");
 }
 
 int main(int argc, char* argv[])

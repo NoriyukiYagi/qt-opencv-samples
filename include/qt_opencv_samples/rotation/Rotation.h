@@ -4,31 +4,31 @@
 #include <QObject>
 
 namespace qt_opencv_samples {
-namespace flip {
+namespace rotation {
 
 using qt_opencv_samples::common::OneInputOneOutput;
 
-class Flip : public OneInputOneOutput
+class Rotation : public OneInputOneOutput
 {
     Q_OBJECT
-    Q_PROPERTY(int flipCode READ flipCode WRITE setFlipCode NOTIFY flipCodeChanged)
+    Q_PROPERTY(double angleInDeg READ angleInDeg WRITE setAngleInDeg NOTIFY angleInDegChanged)
 
 public:
-    explicit Flip(QObject* parent = nullptr);
-    int flipCode();
+    explicit Rotation(QObject* parent = nullptr);
+    double angleInDeg();
 
 signals:
-    void flipCodeChanged();
+    void angleInDegChanged();
 
 public slots:
-    void setFlipCode(int value);
+    void setAngleInDeg(double value);
 
 protected:
     void execute(const cv::UMat& source, cv::UMat& dest) override;
 
 private:
-    int m_flipCode;
+    double m_angleInDeg;
 };
 
-} // namespace flip
+} // namespace rotation
 } // namespace qt_opencv_samples
