@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MainWindow.qml</file>
+        <file>qt_opencv_samples/flip/FlipView.qml</file>
+    </qresource>
+</RCC>
