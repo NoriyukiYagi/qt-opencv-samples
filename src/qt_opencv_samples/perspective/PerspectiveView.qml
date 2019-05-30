@@ -88,7 +88,6 @@ Pane {
                 first.value: d.perspective.destLeftTopY
                 first.onValueChanged: {
                     if (first.value !== d.perspective.destLeftTopY) {
-                        console.info("fist.value:"+first.value);
                         d.perspective.destLeftTopY = first.value;
                         d.perspective.execute();
                     }
@@ -96,7 +95,6 @@ Pane {
                 second.value: d.perspective.destLeftBottomY
                 second.onValueChanged: {
                     if (second.value !== d.perspective.destLeftBottomY) {
-                        console.info("second.value:"+second.value);
                         d.perspective.destLeftBottomY = second.value;
                         d.perspective.execute();
                     }
