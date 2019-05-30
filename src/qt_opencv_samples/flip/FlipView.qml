@@ -52,7 +52,13 @@ Pane {
             }
         }
         Image {
+            id: inputImage
             source: d.flip.inputFileUrl
+            onStatusChanged: {
+                if (inputImage.status === Image.Ready) {
+                    d.flip.execute();
+                }
+            }
         }
         Image {
             source: d.flip.outputFileUrl

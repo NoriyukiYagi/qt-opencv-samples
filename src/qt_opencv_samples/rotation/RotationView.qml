@@ -52,7 +52,13 @@ Pane {
             }
         }
         Image {
+            id: inputImage
             source: d.rotation.inputFileUrl
+            onStatusChanged: {
+                if (inputImage.status === Image.Ready) {
+                    d.rotation.execute();
+                }
+            }
         }
         Image {
             source: d.rotation.outputFileUrl
