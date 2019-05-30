@@ -22,7 +22,6 @@ int main(int argc, char* argv[])
     qmlRegistration();
 
     QQmlApplicationEngine engine;
-    engine.addImportPath(QStringLiteral("qrc:/"));
     engine.load(QUrl(QStringLiteral("qrc:/MainWindow.qml")));
     if (engine.rootObjects().isEmpty()) {
         return -1;
