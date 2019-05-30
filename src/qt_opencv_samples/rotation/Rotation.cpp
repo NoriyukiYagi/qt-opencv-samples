@@ -8,6 +8,7 @@ namespace rotation {
 
 Rotation::Rotation(QObject* parent)
     : OneInputOneOutput(parent)
+    , m_angleInDeg(0)
 {}
 
 double Rotation::angleInDeg()
