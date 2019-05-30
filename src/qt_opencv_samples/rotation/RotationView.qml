@@ -15,10 +15,6 @@ Pane {
         }
     }
 
-    Label {
-        text: "RotationView"
-    }
-
     Grid {
         spacing: 8
         rows: 2
