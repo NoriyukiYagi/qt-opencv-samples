@@ -6,8 +6,8 @@ import "./qt_opencv_samples/rotation"
 
 ApplicationWindow {
     visible: true
-    width: 1024
-    height: 768
+    width: 1152
+    height: 864
 
     QtObject {
         id: d
