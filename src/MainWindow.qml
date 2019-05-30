@@ -3,6 +3,7 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import "./qt_opencv_samples/flip"
 import "./qt_opencv_samples/rotation"
+import "./qt_opencv_samples/perspective"
 
 ApplicationWindow {
     visible: true
@@ -13,7 +14,8 @@ ApplicationWindow {
         id: d
         property variant titles: [
             "Flip",
-            "Rotation"
+            "Rotation",
+            "Perspective"
         ]
         property list<Component> components: [
             Component {
@@ -21,6 +23,9 @@ ApplicationWindow {
             },
             Component {
                 RotationView {}
+            },
+            Component {
+                PerspectiveView {}
             }
         ]
     }
