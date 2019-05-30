@@ -1,10 +1,16 @@
 #include "qt_opencv_samples/common/OneInputOneOutput.h"
 
+#include <QDataStream>
+#include <QDebug>
+#include <QFile>
+#include <QFileInfo>
+
 namespace qt_opencv_samples {
 namespace common {
 
 OneInputOneOutput::OneInputOneOutput(QObject* parent)
     : QObject(parent)
+    , m_inputFileUrl("qrc:/img/lena_std.png")
 {}
 
 QUrl OneInputOneOutput::inputFileUrl()
@@ -40,8 +46,23 @@ void OneInputOneOutput::execute()
         return;
     }
 
+    QString inputFilePath;
+    if (inputFile.isLocalFile()) {
+        inputFilePath = inputFile.toLocalFile();
+    } else {
+        inputFilePath = inputFile.toString();
+        if (inputFilePath.startsWith("qrc:")) {
+            inputFilePath = inputFilePath.right(inputFilePath.size() - 3); // remove 'qrc'
+        }
+    }
+
+    QFile f(inputFilePath);
+    f.open(QIODevice::ReadOnly);
+    QByteArray data = f.readAll();
+    f.close();
+
     cv::UMat source;
-    cv::Mat loaded = cv::imread(inputFile.toLocalFile().toStdString());
+    cv::Mat loaded = cv::imdecode(std::vector<uchar>(data.begin(), data.end()), 1);
     loaded.copyTo(source);
     cv::UMat dest;
 
