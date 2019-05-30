@@ -19,37 +19,44 @@ Pane {
         text: "RotationView"
     }
 
-    Column {
+    Grid {
         spacing: 8
+        rows: 2
+        columns: 2
         Button {
             text: "Select Input File"
             onClicked: {
                 d.fileOpenDialog.open();
             }
         }
-        Image {
-            source: d.rotation.inputFileUrl
-        }
         Row {
             spacing: 8
             Label {
                 text: "angleInDeg:"
+                height: slider.height
+                verticalAlignment: Text.AlignVCenter
             }
             Label {
                 text: d.rotation.angleInDeg
+                height: slider.height
+                verticalAlignment: Text.AlignVCenter
             }
-        }
-        Slider {
-            from: -360
-            to: 360
-            stepSize: 1
-            value: d.rotation.angleInDeg
-            onValueChanged: {
-                if (value !== d.rotation.angleInDeg) {
-                    d.rotation.angleInDeg = value;
-                    d.rotation.execute();
+            Slider {
+                id: slider
+                from: -360
+                to: 360
+                stepSize: 1
+                value: d.rotation.angleInDeg
+                onValueChanged: {
+                    if (value !== d.rotation.angleInDeg) {
+                        d.rotation.angleInDeg = value;
+                        d.rotation.execute();
+                    }
                 }
             }
+        }
+        Image {
+            source: d.rotation.inputFileUrl
         }
         Image {
             source: d.rotation.outputFileUrl

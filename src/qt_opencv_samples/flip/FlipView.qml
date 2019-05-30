@@ -19,38 +19,44 @@ Pane {
         text: "FlipView"
     }
 
-    Column {
+    Grid {
         spacing: 8
+        rows: 2
+        columns: 2
         Button {
             text: "Select Input File"
             onClicked: {
                 d.fileOpenDialog.open();
             }
         }
-        Image {
-            source: d.flip.inputFileUrl
-        }
         Row {
             spacing: 8
             Label {
-                id: flipCodeLabel
                 text: "flipCode:"
+                height: slider.height
+                verticalAlignment: Text.AlignVCenter
             }
             Label {
                 text: d.flip.flipCode
+                height: slider.height
+                verticalAlignment: Text.AlignVCenter
             }
-        }
-        Slider {
-            from: -1
-            to: 1
-            stepSize: 1
-            value: d.flip.flipCode
-            onValueChanged: {
-                if (value !== d.flip.flipCode) {
-                    d.flip.flipCode = value;
-                    d.flip.execute();
+            Slider {
+                id: slider
+                from: -1
+                to: 1
+                stepSize: 1
+                value: d.flip.flipCode
+                onValueChanged: {
+                    if (value !== d.flip.flipCode) {
+                        d.flip.flipCode = value;
+                        d.flip.execute();
+                    }
                 }
             }
+        }
+        Image {
+            source: d.flip.inputFileUrl
         }
         Image {
             source: d.flip.outputFileUrl
