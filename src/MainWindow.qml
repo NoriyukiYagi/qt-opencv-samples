@@ -4,6 +4,7 @@ import QtQuick.Controls 2.12
 import "./qt_opencv_samples/flip"
 import "./qt_opencv_samples/rotation"
 import "./qt_opencv_samples/perspective"
+import "./qt_opencv_samples/equalize"
 
 ApplicationWindow {
     visible: true
@@ -15,7 +16,8 @@ ApplicationWindow {
         property variant titles: [
             "Flip",
             "Rotation",
-            "Perspective"
+            "Perspective",
+            "Equalize"
         ]
         property list<Component> components: [
             Component {
@@ -26,6 +28,9 @@ ApplicationWindow {
             },
             Component {
                 PerspectiveView {}
+            },
+            Component {
+                EqualizeView {}
             }
         ]
     }
@@ -45,8 +50,10 @@ ApplicationWindow {
         }
     }
 
-    Loader {
+    ScrollView {
         anchors.fill: parent
-        sourceComponent: d.components[selection.currentIndex]
+        Loader {
+            sourceComponent: d.components[selection.currentIndex]
+        }
     }
 }

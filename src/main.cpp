@@ -1,3 +1,4 @@
+#include "qt_opencv_samples/equalize/Equalize.h"
 #include "qt_opencv_samples/flip/Flip.h"
 #include "qt_opencv_samples/perspective/Perspective.h"
 #include "qt_opencv_samples/rotation/Rotation.h"
@@ -6,6 +7,7 @@
 
 static void qmlRegistration()
 {
+    using qt_opencv_samples::equalize::Equalize;
     using qt_opencv_samples::flip::Flip;
     using qt_opencv_samples::perspective::Perspective;
     using qt_opencv_samples::rotation::Rotation;
@@ -13,6 +15,7 @@ static void qmlRegistration()
     qmlRegisterType<Flip>("QtOpenCVSamples", 1, 0, "Flip");
     qmlRegisterType<Rotation>("QtOpenCVSamples", 1, 0, "Rotation");
     qmlRegisterType<Perspective>("QtOpenCVSamples", 1, 0, "Perspective");
+    qmlRegisterType<Equalize>("QtOpenCVSamples", 1, 0, "Equalize");
 }
 
 int main(int argc, char* argv[])

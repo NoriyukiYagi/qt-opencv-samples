@@ -4,5 +4,6 @@
         <file>qt_opencv_samples/flip/FlipView.qml</file>
         <file>qt_opencv_samples/rotation/RotationView.qml</file>
         <file>qt_opencv_samples/perspective/PerspectiveView.qml</file>
+        <file>qt_opencv_samples/equalize/EqualizeView.qml</file>
     </qresource>
 </RCC>
