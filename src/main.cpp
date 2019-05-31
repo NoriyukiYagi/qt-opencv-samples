@@ -2,6 +2,7 @@
 #include "qt_opencv_samples/flip/Flip.h"
 #include "qt_opencv_samples/perspective/Perspective.h"
 #include "qt_opencv_samples/rotation/Rotation.h"
+#include "qt_opencv_samples/threshold/Threshold.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
@@ -11,11 +12,13 @@ static void qmlRegistration()
     using qt_opencv_samples::flip::Flip;
     using qt_opencv_samples::perspective::Perspective;
     using qt_opencv_samples::rotation::Rotation;
+    using qt_opencv_samples::threshold::Threshold;
 
     qmlRegisterType<Flip>("QtOpenCVSamples", 1, 0, "Flip");
     qmlRegisterType<Rotation>("QtOpenCVSamples", 1, 0, "Rotation");
     qmlRegisterType<Perspective>("QtOpenCVSamples", 1, 0, "Perspective");
     qmlRegisterType<Equalize>("QtOpenCVSamples", 1, 0, "Equalize");
+    qmlRegisterType<Threshold>("QtOpenCVSamples", 1, 0, "Threshold");
 }
 
 int main(int argc, char* argv[])

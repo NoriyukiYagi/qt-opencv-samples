@@ -5,6 +5,7 @@ import "./qt_opencv_samples/flip"
 import "./qt_opencv_samples/rotation"
 import "./qt_opencv_samples/perspective"
 import "./qt_opencv_samples/equalize"
+import "./qt_opencv_samples/threshold"
 
 ApplicationWindow {
     visible: true
@@ -17,7 +18,8 @@ ApplicationWindow {
             "Flip",
             "Rotation",
             "Perspective",
-            "Equalize"
+            "Equalize",
+            "Threshold"
         ]
         property list<Component> components: [
             Component {
@@ -31,6 +33,9 @@ ApplicationWindow {
             },
             Component {
                 EqualizeView {}
+            },
+            Component {
+                ThresholdView {}
             }
         ]
     }
