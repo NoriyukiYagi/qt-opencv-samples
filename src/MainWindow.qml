@@ -6,6 +6,7 @@ import "./qt_opencv_samples/rotation"
 import "./qt_opencv_samples/perspective"
 import "./qt_opencv_samples/equalize"
 import "./qt_opencv_samples/threshold"
+import "./qt_opencv_samples/blur"
 
 ApplicationWindow {
     visible: true
@@ -19,7 +20,8 @@ ApplicationWindow {
             "Rotation",
             "Perspective",
             "Equalize",
-            "Threshold"
+            "Threshold",
+            "Blur"
         ]
         property list<Component> components: [
             Component {
@@ -36,6 +38,9 @@ ApplicationWindow {
             },
             Component {
                 ThresholdView {}
+            },
+            Component {
+                BlurView {}
             }
         ]
     }

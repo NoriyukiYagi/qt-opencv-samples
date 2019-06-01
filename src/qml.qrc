@@ -6,5 +6,6 @@
         <file>qt_opencv_samples/perspective/PerspectiveView.qml</file>
         <file>qt_opencv_samples/equalize/EqualizeView.qml</file>
         <file>qt_opencv_samples/threshold/ThresholdView.qml</file>
+        <file>qt_opencv_samples/blur/BlurView.qml</file>
     </qresource>
 </RCC>
