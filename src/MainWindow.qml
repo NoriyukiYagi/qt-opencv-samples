@@ -15,33 +15,14 @@ ApplicationWindow {
 
     QtObject {
         id: d
-        property variant titles: [
-            "Flip",
-            "Rotation",
-            "Perspective",
-            "Equalize",
-            "Threshold",
-            "Blur"
-        ]
-        property list<Component> components: [
-            Component {
-                FlipView {}
-            },
-            Component {
-                RotationView {}
-            },
-            Component {
-                PerspectiveView {}
-            },
-            Component {
-                EqualizeView {}
-            },
-            Component {
-                ThresholdView {}
-            },
-            Component {
-                BlurView {}
-            }
+        property variant views: [
+            ["Flip", "./qt_opencv_samples/flip/FlipView.qml"],
+            ["Rotation", "./qt_opencv_samples/rotation/RotationView.qml"],
+            ["Perspective", "./qt_opencv_samples/perspective/PerspectiveView.qml"],
+            ["Equalize", "./qt_opencv_samples/equalize/EqualizeView.qml"],
+            ["Threshold", "./qt_opencv_samples/threshold/ThresholdView.qml"],
+            ["Blur", "./qt_opencv_samples/blur/BlurView.qml"],
+            ["Canny", "./qt_opencv_samples/canny/CannyView.qml"],
         ]
     }
 
@@ -54,8 +35,11 @@ ApplicationWindow {
             }
             ComboBox {
                 id: selection
-                model: d.titles
-                displayText: d.titles[currentIndex]
+                model: d.views
+                displayText: d.views[currentIndex][0].toString()
+                delegate: ItemDelegate {
+                    text: modelData[0].toString()
+                }
             }
         }
     }
@@ -63,7 +47,7 @@ ApplicationWindow {
     ScrollView {
         anchors.fill: parent
         Loader {
-            sourceComponent: d.components[selection.currentIndex]
+            source: d.views[selection.currentIndex][1].toString()
         }
     }
 }
