@@ -15,30 +15,20 @@ Pane {
         }
     }
 
-    Column {
+    Grid {
         spacing: 8
+        columns: 2
+        rows: 2
+
         Button {
             text: "Select Input File"
             onClicked: {
                 d.fileOpenDialog.open();
             }
         }
-        Image {
-            id: inputImage
-            source: d.canny.inputFileUrl
-            onStatusChanged: {
-                if (inputImage.status === Image.Ready) {
-                    d.canny.execute();
-                }
-            }
-        }
-        Grid {
-            spacing: 8
-            columns: 2
-            rows: 2
-            Label {
-                text: "Grayscale"
-            }
+
+        Row {
+            spacing: 4
             Column {
                 Row {
                     spacing: 4
@@ -72,12 +62,30 @@ Pane {
                     }
                 }
             }
-            Image {
-                source: d.canny.output1FileUrl
+            Switch {
+                text: qsTr("Equalize")
+                checked: d.canny.equalize
+                onCheckedChanged: {
+                    if (checked !== d.canny.equalize) {
+                        d.canny.equalize = checked;
+                        d.canny.execute();
+                    }
+                }
             }
-            Image {
-                source: d.canny.output2FileUrl
+        }
+
+        Image {
+            id: inputImage
+            source: d.canny.inputFileUrl
+            onStatusChanged: {
+                if (inputImage.status === Image.Ready) {
+                    d.canny.execute();
+                }
             }
+        }
+
+        Image {
+            source: d.canny.outputFileUrl
         }
     }
 }

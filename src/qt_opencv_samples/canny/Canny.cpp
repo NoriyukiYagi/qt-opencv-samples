@@ -6,15 +6,25 @@ namespace qt_opencv_samples {
 namespace canny {
 
 Canny::Canny(QObject* parent)
-    : OneInputTwoOutput(parent)
-    , m_threshold1(40)
-    , m_threshold2(200)
+    : OneInputOneOutput(parent)
+    , m_threshold1(60)
+    , m_threshold2(180)
+    , m_equalize(false)
 {}
 
-void Canny::execute(const cv::UMat& source, cv::UMat& dest1, cv::UMat& dest2)
+void Canny::execute(const cv::UMat& source, cv::UMat& dest)
 {
-    cv::cvtColor(source, dest1, cv::COLOR_BGR2GRAY);
-    cv::Canny(dest1, dest2, threshold1(), threshold2());
+    cv::UMat gray;
+    cv::cvtColor(source, gray, cv::COLOR_BGR2GRAY);
+
+    cv::UMat equalizedOrNot;
+    if (equalize()) {
+        cv::equalizeHist(gray, equalizedOrNot);
+    } else {
+        equalizedOrNot = gray;
+    }
+
+    cv::Canny(equalizedOrNot, dest, threshold1(), threshold2());
 }
 
 double Canny::threshold1()
@@ -40,6 +50,17 @@ void Canny::setThreshold2(double value)
     if (!qFuzzyCompare(value, m_threshold2)) {
         m_threshold2 = value;
         emit threshold2Changed();
+    }
+}
+
+bool Canny::equalize() {
+    return m_equalize;
+}
+
+void Canny::setEqualize(bool value) {
+    if (value != m_equalize) {
+        m_equalize = value;
+        emit equalizeChanged();
     }
 }
 
