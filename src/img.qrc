@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
         <file>img/lena_std.png</file>
-        <file>qt_opencv_samples/equalize/EqualizeView.qml</file>
     </qresource>
 </RCC>
