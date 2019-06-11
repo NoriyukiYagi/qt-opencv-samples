@@ -1,5 +1,6 @@
 #include "qt_opencv_samples/blur/Blur.h"
 #include "qt_opencv_samples/canny/Canny.h"
+#include "qt_opencv_samples/detect/DetectCorners.h"
 #include "qt_opencv_samples/equalize/Equalize.h"
 #include "qt_opencv_samples/flip/Flip.h"
 #include "qt_opencv_samples/perspective/Perspective.h"
@@ -12,6 +13,7 @@ static void qmlRegistration()
 {
     using qt_opencv_samples::blur::Blur;
     using qt_opencv_samples::canny::Canny;
+    using qt_opencv_samples::detect::DetectCorners;
     using qt_opencv_samples::equalize::Equalize;
     using qt_opencv_samples::flip::Flip;
     using qt_opencv_samples::perspective::Perspective;
@@ -25,6 +27,7 @@ static void qmlRegistration()
     qmlRegisterType<Threshold>("QtOpenCVSamples", 1, 0, "Threshold");
     qmlRegisterType<Blur>("QtOpenCVSamples", 1, 0, "Blur");
     qmlRegisterType<Canny>("QtOpenCVSamples", 1, 0, "Canny");
+    qmlRegisterType<DetectCorners>("QtOpenCVSamples", 1, 0, "DetectCorners");
 }
 
 int main(int argc, char* argv[])

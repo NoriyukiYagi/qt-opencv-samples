@@ -8,5 +8,6 @@
         <file>qt_opencv_samples/threshold/ThresholdView.qml</file>
         <file>qt_opencv_samples/blur/BlurView.qml</file>
         <file>qt_opencv_samples/canny/CannyView.qml</file>
+        <file>qt_opencv_samples/detect/DetectCornersView.qml</file>
     </qresource>
 </RCC>

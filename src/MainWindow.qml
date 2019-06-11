@@ -7,6 +7,7 @@ import "./qt_opencv_samples/perspective"
 import "./qt_opencv_samples/equalize"
 import "./qt_opencv_samples/threshold"
 import "./qt_opencv_samples/blur"
+import "./qt_opencv_samples/detect"
 
 ApplicationWindow {
     visible: true
@@ -23,6 +24,7 @@ ApplicationWindow {
             ["Threshold", "./qt_opencv_samples/threshold/ThresholdView.qml"],
             ["Blur", "./qt_opencv_samples/blur/BlurView.qml"],
             ["Canny", "./qt_opencv_samples/canny/CannyView.qml"],
+            ["Corners", "./qt_opencv_samples/detect/DetectCornersView.qml"],
         ]
     }
 
