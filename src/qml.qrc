@@ -9,5 +9,6 @@
         <file>qt_opencv_samples/blur/BlurView.qml</file>
         <file>qt_opencv_samples/canny/CannyView.qml</file>
         <file>qt_opencv_samples/detect/DetectCornersView.qml</file>
+        <file>qt_opencv_samples/detect/DetectObjectsView.qml</file>
     </qresource>
 </RCC>

@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/lena_std.png</file>
+        <file>data/haarcascades/haarcascade_eye.xml</file>
+        <file>data/haarcascades/haarcascade_eye_tree_eyeglasses.xml</file>
+        <file>data/haarcascades/haarcascade_frontalcatface.xml</file>
+        <file>data/haarcascades/haarcascade_frontalcatface_extended.xml</file>
+        <file>data/haarcascades/haarcascade_frontalface_alt.xml</file>
+        <file>data/haarcascades/haarcascade_frontalface_alt2.xml</file>
+        <file>data/haarcascades/haarcascade_frontalface_alt_tree.xml</file>
+        <file>data/haarcascades/haarcascade_frontalface_default.xml</file>
+        <file>data/haarcascades/haarcascade_fullbody.xml</file>
+        <file>data/haarcascades/haarcascade_lefteye_2splits.xml</file>
+        <file>data/haarcascades/haarcascade_licence_plate_rus_16stages.xml</file>
+        <file>data/haarcascades/haarcascade_lowerbody.xml</file>
+        <file>data/haarcascades/haarcascade_profileface.xml</file>
+        <file>data/haarcascades/haarcascade_righteye_2splits.xml</file>
+        <file>data/haarcascades/haarcascade_russian_plate_number.xml</file>
+        <file>data/haarcascades/haarcascade_smile.xml</file>
+        <file>data/haarcascades/haarcascade_upperbody.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_eye.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_eye_tree_eyeglasses.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_frontalface_alt.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_frontalface_alt2.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_frontalface_alt_tree.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_frontalface_default.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_fullbody.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_lefteye_2splits.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_lowerbody.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_profileface.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_righteye_2splits.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_smile.xml</file>
+        <file>data/haarcascades_cuda/haarcascade_upperbody.xml</file>
+        <file>data/hogcascades/hogcascade_pedestrians.xml</file>
+        <file>data/lbpcascades/lbpcascade_frontalcatface.xml</file>
+        <file>data/lbpcascades/lbpcascade_frontalface.xml</file>
+        <file>data/lbpcascades/lbpcascade_frontalface_improved.xml</file>
+        <file>data/lbpcascades/lbpcascade_profileface.xml</file>
+        <file>data/lbpcascades/lbpcascade_silverware.xml</file>
+    </qresource>
+</RCC>

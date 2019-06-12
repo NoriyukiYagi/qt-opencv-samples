@@ -24,7 +24,8 @@ ApplicationWindow {
             ["Threshold", "./qt_opencv_samples/threshold/ThresholdView.qml"],
             ["Blur", "./qt_opencv_samples/blur/BlurView.qml"],
             ["Canny", "./qt_opencv_samples/canny/CannyView.qml"],
-            ["Corners", "./qt_opencv_samples/detect/DetectCornersView.qml"],
+            ["DetectCorners", "./qt_opencv_samples/detect/DetectCornersView.qml"],
+            ["DetectObjects", "./qt_opencv_samples/detect/DetectObjectsView.qml"],
         ]
     }
 
